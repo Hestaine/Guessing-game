@@ -1,0 +1,150 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  padding: 1rem;
+  color: whitesmoke;
+  flex-direction: column;
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(
+    to left top,
+    rgb(133, 119, 119),
+    rgb(72, 72, 94)
+  );
+}
+
+.playerInfo {
+  gap: 1rem;
+  display: flex;
+  padding: 1rem;
+  border-radius: 10px;
+  align-items: center;
+  flex-direction: column;
+
+  background-image: linear-gradient(
+    to left top,
+    rgb(54, 54, 71),
+    rgb(68, 68, 83)
+  );
+  justify-content: space-between;
+}
+
+.playerLabel,
+.playerInfo h2,
+.playerInfo p,
+.alert {
+  font-weight: 700;
+
+  animation: pulsing 7s infinite both;
+}
+
+input {
+  width: 35%;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  color: whitesmoke;
+  background-image: linear-gradient(
+    to left top,
+    rgb(74, 71, 83),
+    rgb(36, 37, 36)
+  );
+  padding: 0.2rem 0.2rem 0.2rem 0.5rem;
+}
+
+input::placeholder {
+  background-clip: text;
+  background-image: linear-gradient(
+    to left,
+    rgb(231, 231, 238),
+    rgb(221, 226, 221)
+  );
+}
+
+form {
+  gap: 1.5rem;
+  display: flex;
+  margin-top: 0.5rem;
+  justify-content: center;
+}
+
+button {
+  border: 0;
+  width: 40%;
+  height: 5vh;
+  font-size: 1.3rem;
+  cursor: pointer;
+  color: whitesmoke;
+  border-radius: 10px;
+
+  background-image: linear-gradient(to right, rgb(27, 27, 25), rgb(28, 32, 28));
+}
+
+.hidden {
+  display: none;
+}
+
+main {
+  gap: 2rem;
+  height: 100vh;
+  display: flex;
+  position: relative;
+
+  justify-content: space-between;
+}
+
+img {
+  height: 7rem;
+  width: 7rem;
+  border-radius: 50%;
+}
+
+.alert {
+  position: absolute;
+
+  top: 30%;
+  left: 30vw;
+}
+
+.guess-submit {
+  display: none;
+}
+
+.playerTab {
+  width: 42vw;
+}
+
+.playerTab1 {
+  background-image: linear-gradient(
+    to top left,
+    rgb(68, 70, 68),
+    rgb(92, 100, 92)
+  );
+}
+
+.playerTab2 {
+  background-image: linear-gradient(rgb(70, 68, 68), rgb(100, 92, 92));
+}
+
+.number-guess {
+  top: 50%;
+  left: 40vw;
+  position: absolute;
+}
+
+@keyframes pulsing {
+  0% {
+    opacity: 30;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 50;
+    transform: scale(1.5);
+  }
+}

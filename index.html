@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Hestaine guess</title>
+  </head>
+  <body>
+    <section class="playerInfo hidden">
+      <h2 class="">Welcome to Hestaine guess</h2>
+      <p class="">A game to play with frineds</p>
+      <label for="play1" class="playerLabel">Player Names?: </label>
+      <form>
+        <input
+          type="text"
+          id="play1"
+          maxlength="8"
+          minlength="3"
+          placeholder="Player 1"
+        />
+        <input
+          type="text"
+          id="play2"
+          maxlength="8"
+          minlength="3"
+          placeholder="Player 2"
+        />
+      </form>
+      <button class="nameSubmit">Start🚀</button>
+    </section>
+    <main class="">
+      <h3 class="alert hidden">Player 1 starts first</h3>
+      <section class="playerTab1 playerTab">
+        <div class="playerdetails">
+          <h2 class="playerName1">Player 1</h2>
+          <img
+            src="images/desktop-wallpaper-demon-slayer-anime-thumbnail.jpg"
+            alt="logo1"
+          />
+        </div>
+        <span class="score">0</span>
+      </section>
+      <div class="number-guess">
+        <h2 class="guess-range">Guess from (min - max)</h2>
+        <form class="numInp">
+          <input type="number" class="guess-input" />
+          <button class="guess-submit"></button>
+        </form>
+      </div>
+      <section class="playerTab2 playerTab">
+        <div class="playerdetails">
+          <h2 class="playerName2">Player 2</h2>
+          <img src="images/seven deadly.jpg" alt="logo1" />
+        </div>
+        <span class="score2">0</span>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
