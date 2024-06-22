@@ -5,10 +5,15 @@
 }
 
 body {
+  height: 101vh;
   display: flex;
-  padding: 1rem;
+  padding-top: 2rem;
   color: whitesmoke;
   flex-direction: column;
+
+  overflow: hidden;
+
+  align-items: center;
 
   background-size: cover;
   background-repeat: no-repeat;
@@ -21,18 +26,21 @@ body {
 
 .playerInfo {
   gap: 1rem;
+  width: 90vw;
   display: flex;
-  padding: 1rem;
+  padding: 1.5rem;
   border-radius: 10px;
   align-items: center;
   flex-direction: column;
+  justify-content: space-between;
 
   background-image: linear-gradient(
     to left top,
     rgb(54, 54, 71),
     rgb(68, 68, 83)
   );
-  justify-content: space-between;
+
+  transition: all 3s ease-in-out;
 }
 
 .playerLabel,
@@ -41,7 +49,15 @@ body {
 .alert {
   font-weight: 700;
 
-  animation: pulsing 7s infinite both;
+  animation: pulsing 3s infinite;
+}
+
+.playerInfo h2 {
+  font-size: 1.1rem;
+}
+
+.playerInfo p {
+  font-size: 0.8rem;
 }
 
 input {
@@ -50,12 +66,12 @@ input {
   outline: none;
   border-radius: 5px;
   color: whitesmoke;
+  padding: 0.3rem 0.2rem 0.3rem 0.5rem;
   background-image: linear-gradient(
     to left top,
     rgb(74, 71, 83),
     rgb(36, 37, 36)
   );
-  padding: 0.2rem 0.2rem 0.2rem 0.5rem;
 }
 
 input::placeholder {
@@ -78,10 +94,10 @@ button {
   border: 0;
   width: 40%;
   height: 5vh;
-  font-size: 1.3rem;
   cursor: pointer;
+  font-size: 1.3rem;
   color: whitesmoke;
-  border-radius: 10px;
+  border-radius: 15px;
 
   background-image: linear-gradient(to right, rgb(27, 27, 25), rgb(28, 32, 28));
 }
@@ -90,41 +106,98 @@ button {
   display: none;
 }
 
+.fadeout {
+  animation: fadeout 3s;
+}
+
+.fadein {
+  animation: fadein 3s;
+}
+
 main {
   gap: 2rem;
   height: 100vh;
   display: flex;
   position: relative;
 
+  margin: 0 auto;
+  max-width: 1000;
+
   justify-content: space-between;
+
+  transition: all 2s ease-in-out;
 }
 
 img {
-  height: 7rem;
-  width: 7rem;
+  width: 5rem;
+  height: 5rem;
   border-radius: 50%;
 }
 
+.img2 {
+  opacity: 100;
+}
+
 .alert {
+  font-size: 1.3rem;
   position: absolute;
 
-  top: 30%;
-  left: 30vw;
+  top: 42.5%;
+  left: 25vw;
+}
+
+.number-guess {
+  top: 50%;
+  left: 12vw;
+  gap: 0.5rem;
+  display: flex;
+  position: absolute;
+  flex-direction: column;
 }
 
 .guess-submit {
   display: none;
 }
 
+.restart {
+  top: 65%;
+  left: 27vw;
+  position: absolute;
+}
+
 .playerTab {
   width: 42vw;
+  padding: 1rem;
+  display: flex;
+  height: 95.5vh;
+  align-items: center;
+  border-radius: 10px;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.playerDetails {
+  gap: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.score {
+  font-size: 2.5rem;
+
+  transition: all 3s ease-in-out;
+}
+
+input::-webkit-inner-spin-button {
+  display: none;
 }
 
 .playerTab1 {
   background-image: linear-gradient(
     to top left,
-    rgb(68, 70, 68),
-    rgb(92, 100, 92)
+    rgb(68, 68, 70),
+    rgb(92, 93, 100)
   );
 }
 
@@ -132,10 +205,167 @@ img {
   background-image: linear-gradient(rgb(70, 68, 68), rgb(100, 92, 92));
 }
 
-.number-guess {
-  top: 50%;
-  left: 40vw;
-  position: absolute;
+@media screen and (min-width: 410px) {
+  .number-guess {
+    top: 55%;
+    left: 16vw;
+  }
+
+  .alert {
+    top: 47%;
+    left: 24vw;
+  }
+
+  .restart {
+    top: 68%;
+  }
+
+  .playerDetails h2 {
+    font-size: 2.2rem;
+  }
+
+  .score {
+    font-size: 3rem;
+  }
+
+  img {
+    width: 8rem;
+    height: 8rem;
+  }
+
+  .guess-input {
+    width: 22vw;
+    height: 4vh;
+  }
+}
+
+@media screen and (min-width: 520px) {
+  .playerInfo {
+    gap: 1.7rem;
+  }
+
+  .playerInfo h2 {
+    font-size: 1.7rem;
+  }
+
+  .playerInfo p {
+    font-size: 1.3rem;
+  }
+
+  input {
+    height: 2.5vh;
+  }
+
+  .number-guess {
+    top: 57%;
+    /* left: 26vw; */
+    font-size: 1.5rem;
+  }
+
+  .alert {
+    top: 49%;
+    left: 28.5vw;
+    font-size: 1.7rem;
+  }
+
+  .restart {
+    top: 71%;
+  }
+
+  .playerDetails h2 {
+    font-size: 3rem;
+  }
+
+  .playerDetails {
+    gap: 2.5rem;
+  }
+
+  .score {
+    font-size: 3.5rem;
+  }
+
+  img {
+    width: 10rem;
+    height: 10rem;
+  }
+}
+
+@media screen and (min-width: 767px) {
+  .playerInfo {
+    width: 65vw;
+  }
+
+  input {
+    height: 3vh;
+  }
+
+  .number-guess {
+    top: 60%;
+    /* left: 26vw; */
+    font-size: 1.8rem;
+  }
+
+  .alert {
+    top: 52%;
+    left: 28.5vw;
+    font-size: 1.9rem;
+  }
+
+  .restart {
+    top: 75%;
+  }
+
+  .playerDetails h2 {
+    font-size: 3.7rem;
+  }
+
+  .playerDetails {
+    gap: 2.5rem;
+  }
+
+  .score {
+    font-size: 3.5rem;
+  }
+
+  img {
+    width: 11rem;
+    height: 11rem;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .number-guess {
+    top: 60%;
+    left: 24%;
+    font-size: 2rem;
+  }
+
+  .alert {
+    top: 50%;
+    left: 35vw;
+    font-size: 2rem;
+  }
+
+  .restart {
+    top: 80%;
+  }
+
+  .playerDetails h2 {
+    font-size: 3.7rem;
+  }
+
+  .playerDetails {
+    gap: 2.5rem;
+  }
+
+  .score {
+    font-size: 4.4rem;
+  }
+
+  img {
+    width: 11rem;
+    height: 11rem;
+  }
 }
 
 @keyframes pulsing {
@@ -144,7 +374,25 @@ img {
     transform: scale(1);
   }
   50% {
-    opacity: 50;
-    transform: scale(1.5);
+    opacity: 80;
+    transform: scale(1.4);
+  }
+}
+
+@keyframes fadeout {
+  0% {
+    opacity: 100;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 100;
   }
 }

@@ -7,7 +7,7 @@
     <title>Hestaine guess</title>
   </head>
   <body>
-    <section class="playerInfo hidden">
+    <section class="playerInfo">
       <h2 class="">Welcome to Hestaine guess</h2>
       <p class="">A game to play with frineds</p>
       <label for="play1" class="playerLabel">Player Names?: </label>
@@ -29,31 +29,33 @@
       </form>
       <button class="nameSubmit">Start🚀</button>
     </section>
-    <main class="">
-      <h3 class="alert hidden">Player 1 starts first</h3>
+    <main class="hidden">
+      <h3 class="alert">Player 1 starts first</h3>
       <section class="playerTab1 playerTab">
-        <div class="playerdetails">
+        <div class="playerDetails">
           <h2 class="playerName1">Player 1</h2>
           <img
             src="images/desktop-wallpaper-demon-slayer-anime-thumbnail.jpg"
             alt="logo1"
+            class="img1"
           />
         </div>
-        <span class="score">0</span>
+        <span class="score1 score">0</span>
       </section>
       <div class="number-guess">
-        <h2 class="guess-range">Guess from (min - max)</h2>
+        <h2 class="guess-range"></h2>
         <form class="numInp">
           <input type="number" class="guess-input" />
           <button class="guess-submit"></button>
         </form>
       </div>
+      <button class="restart hidden">Restart?😏</button>
       <section class="playerTab2 playerTab">
-        <div class="playerdetails">
+        <div class="playerDetails">
           <h2 class="playerName2">Player 2</h2>
-          <img src="images/seven deadly.jpg" alt="logo1" />
+          <img src="images/seven deadly.jpg" alt="logo1" class="img2" />
         </div>
-        <span class="score2">0</span>
+        <span class="score2 score">0</span>
       </section>
     </main>
     <script src="script.js"></script>
