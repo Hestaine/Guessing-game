@@ -20,7 +20,7 @@ const infoSect = document.querySelector(".playerInfo");
 const mainSect = document.querySelector("main");
 
 // default valules
-let scores, playerNames, activeplayer, guessNum;
+let scores, playerNames, activeplayer, guessNum, guessMin, guessMax;
 
 // Functions
 // Generate and display number range and guess number
@@ -29,7 +29,9 @@ const randomMax = () => Math.round(Math.random() * (24 - 12) + 1) + 12;
 
 const guessNumberGenerate = function (min, max) {
   guessLabel.textContent = `Guess from range (${min} - ${max})`;
-  console.log(min, max);
+
+  guessMin = min;
+  guessMax = max;
 
   guessNum = Math.trunc(Math.random() * (max - min) + 1) + min;
   console.log(guessNum);
@@ -39,7 +41,11 @@ const generateMinMax = () => guessNumberGenerate(randomMin(), randomMax());
 
 // start game
 const startGame = function () {
-  if (playerNameInput1.value && playerNameInput2.value) {
+  if (
+    playerNameInput1.value &&
+    playerNameInput2.value &&
+    playerNameInput1.value !== playerNameInput2.value
+  ) {
     // display playername
     playerNameLabel1.textContent = playerNameInput1.value;
     playerNameLabel2.textContent = playerNameInput2.value;
@@ -68,6 +74,11 @@ const startGame = function () {
     activeplayer = 0;
 
     generateMinMax();
+  } else {
+    infoSect.classList.add("shake");
+    setTimeout(() => {
+      infoSect.classList.remove("shake");
+    }, 1000);
   }
 };
 
@@ -102,19 +113,41 @@ const switchPlayer = () => {
 
 // Check guess and add scores
 const checkGuess = function () {
-  if (+guessInput.value === guessNum) {
-    scores[activeplayer] += 1;
-
+  // Function to clear input
+  const clearFieldINput = () => {
     guessInput.blur();
     guessInput.value = "";
+  };
 
-    switchPlayer();
-    updateScores();
-    generateMinMax();
+  if (+guessInput.value < guessMin || +guessInput.value > guessMax) {
+    console.log(guessMin);
+    guessLabel.classList.add("pulsing");
+    setTimeout(() => guessLabel.classList.remove("pulsing"), 3000);
+
+    // Clear field input
+    clearFieldINput();
   } else {
-    switchPlayer();
-    guessInput.blur();
-    guessInput.value = "";
+    if (+guessInput.value === guessNum) {
+      scores[activeplayer] += 1;
+
+      // Clear field input
+      clearFieldINput();
+
+      // Swith Player
+      switchPlayer();
+
+      // Update Scores
+      updateScores();
+
+      // Generate new min max
+      generateMinMax();
+    } else if (+guessInput.value !== guessNum) {
+      // Swith Player
+      switchPlayer();
+
+      // Clear field input
+      clearFieldINput();
+    }
   }
 };
 

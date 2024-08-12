@@ -40,7 +40,7 @@ body {
     rgb(68, 68, 83)
   );
 
-  transition: all 3s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
 .playerLabel,
@@ -125,7 +125,7 @@ main {
 
   justify-content: space-between;
 
-  transition: all 2s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
 img {
@@ -186,7 +186,15 @@ img {
 .score {
   font-size: 2.5rem;
 
-  transition: all 3s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.pulsing {
+  animation: pulsing 3s infinite;
+}
+
+.shake {
+  animation: shake 0.1s infinite both;
 }
 
 input::-webkit-inner-spin-button {
@@ -394,5 +402,20 @@ input::-webkit-inner-spin-button {
   }
   50% {
     opacity: 100;
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: translateY(-2px);
+    transform: translateX(-20px);
+  }
+  50% {
+    transform: translateX(0px);
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateX(20px);
+    transform: translateY(2px);
   }
 }
